@@ -1,0 +1,125 @@
+{% extends "home.html" %}
+{% load static %}
+{% block title %}
+<title>OnlineBazar | Profile Page</title>
+{% endblock title %}
+{% block content %}
+
+<div class="container-fluid mt-2">
+    <div class="row mb-2">
+        <div class="col-md-6 col-12">
+            <h5 class="background text-center rounded">Billing Details</h5>
+            <table class="table">
+
+                <tr>
+                    <th>Full Name</th>
+                    <td>{{user.name}}</td>
+                </tr>
+
+
+                <tr>
+                    <th>Email</th>
+                    <td>{{user.email}}</td>
+                </tr>
+
+                <tr>
+                    <th>Phone</th>
+                    <td>{{user.phone}}</td>
+                </tr>
+
+                <tr>
+                    <th>AddressLine 1</th>
+                    <td>{{user.addressline1}}</td>
+                </tr>
+
+                <tr>
+                    <th>AddressLine 2</th>
+                    <td>{{user.addressline2}}</td>
+                </tr>
+
+                <tr>
+                    <th>AddressLine 3</th>
+                    <td>{{user.addressline3}}</td>
+                </tr>
+
+                <tr>
+                    <th>Pin Code</th>
+                    <td>{{user.pin}}</td>
+                </tr>
+
+                <tr>
+                    <th>City</th>
+                    <td>{{user.city}}</td>
+                </tr>
+
+                <tr>
+                    <th>State</th>
+                    <td>{{user.state}}</td>
+                </tr>
+
+            </table>
+
+            <tr>
+                <td><a class="btn background text-center mb-2 p-2 w-100" href="/update/">Update Address</a></td>
+            </tr>
+        </div>
+        <div class="col-md-6 col-12">
+
+            <table class="table table-bordered table-striped table-hover">
+                <h5 class="background text-center rounded">Cart Page</h5>
+                <tr>
+
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Total</th>
+
+                </tr>
+                {% for i in cart %}
+                <tr>
+                    <td><img src="{{i.pic}}" width="80px" height="65px" class="rounded" alt=""></td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.color}}</td>
+                    <td>{{i.size}}</td>
+                    <td>{{i.price}}</td>
+                    <td>{{i.total}}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th>Total Amount</th>
+                    <td>&#8377;{{total}}</td>
+                </tr>
+                <tr>
+                    <th>Shipping Amount</th>
+                    <td>&#8377;{{shipping}}</td>
+                </tr>
+                <tr>
+                    <th>Final Amount</th>
+                    <td>&#8377;{{final}}</td>
+                </tr>
+
+                <tr>
+                    <form method="post" action="/order/">
+                        {% csrf_token %}
+                        <th>Payment Mode</th>
+                        <td>
+                            <select name="mode" class="form-select">
+                                <option value="COD">COD</option>
+                                <option value="Net Banking">Net Banking / Card /UPI</option>
+                            </select>
+                        </td>
+                </tr>
+                <tr>
+                    <th colspan="2"><button type="submit" class="btn background w-100 btn-sm">Place
+                            Order</button></th>
+                </tr>
+                </form>
+            </table>
+
+        </div>
+    </div>
+    {% endblock %}

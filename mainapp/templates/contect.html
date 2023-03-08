@@ -1,0 +1,58 @@
+{% extends 'home.html' %}
+{% block title %}
+<title>OnlinBazar | Contect Page</title>
+{% endblock %}
+{% block content %}
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <h5 class="background text-center rounded "> jafarraza651@gmail.com</h5>
+
+            <div style="max-width:100%;overflow:hidden;color:red;width:500px;height:500px;">
+                <div id="gmap-canvas" style="height:100%; width:500px;max-width:500px;"><iframe
+                        style="height:100%;width:100%;border:0;" frameborder="0"
+                        src="https://www.google.com/maps/embed/v1/place?q=Okhla,+New+Delhi,+Delhi,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                </div>
+            </div>
+            <h5 class="background text-center rounded mt-2"> 7906627238</h5>
+            <h5 class="background text-center rounded"> okhla phase 2, New Delhi</h5>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="row">
+                <h5 class="background text-center">Contect Page</h5>
+                {% for i in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{i}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Enter Name</label>
+                        <input class="form-control" type="text" required name="name" placeholder="Enter Name">
+
+                        <label class="form-label">Enter Email</label>
+                        <input class="form-control" type="email" required name="email"
+                            placeholder="Enter email Address">
+
+                        <label class="form-label">Enter Phone</label>
+                        <input class="form-control" type="text" required name="phone" placeholder="Enter Phone Number">
+
+                        <label class="form-label">Enter Subject</label>
+                        <input class="form-control" type="text" required name="subject" placeholder="Enter Name">
+
+
+                        <label class="form-label">Enter If you have any message</label>
+                        <textarea name="message" class="form-control" rows="5"></textarea>
+                        <button class="background btn text-center w-100 mt-2" type="submit">Submit</button>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

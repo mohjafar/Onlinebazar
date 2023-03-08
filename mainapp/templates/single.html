@@ -1,0 +1,112 @@
+{% extends "home.html" %}
+{% block title %}
+<title>Product Detail</title>
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 mb-12">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators ">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner mt-2">
+                    <div class="carousel-item active">
+                        <img src="{{data.pic1.url}}" height="500px" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{data.pic2.url}}" height="500px" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{data.pic3.url}}" height="500px" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{data.pic4.url}}" height="500px" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 mb-12">
+            <h5 class="background text-center mt-2 rounded">{{data.name}}</h5>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Product Name</th>
+                        <td>{{data.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Maincategory</th>
+                        <td>{{data.maincategory}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Subcategory</th>
+                        <td>{{data.subcategory}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Brand</th>
+                        <td>{{data.brand}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Product Color</th>
+                        <td>{{data.color}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Product Size</th>
+                        <td>{{data.size}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Description</th>
+                        <td>{{data.description}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Base Price</th>
+                        <td>&#8377;<del>{{data.baseprice}}</del></td>
+                    </tr>
+                    <tr>
+                        <th>Discount</th>
+                        <td>{{data.discount}}%</td>
+                    </tr>
+
+                    <tr>
+                        <th>Final Price</th>
+                        <td>{{data.finalprice}}</td>
+                    </tr>
+
+                    <tr>
+                        <th><a href="/add-to-cart/{{data.id}}" class="btn background  mybtn w-100 btn-sm">Add To Cart</a></th>
+                        <td><a href="/addtowishlist/{{data.id}}" class="btn background text-center w-100 btn-sm">Add To Wishlist</a></td>
+                    </tr>         
+
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
